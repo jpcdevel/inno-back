@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-xph&n#9s(sj7m)_%$@nj@m+8^gc_st3rm*#^(#5q_)l#q#@^a*
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://inno-tim.herokuapp.com", 'inno-tim.herokuapp.com]
+ALLOWED_HOSTS = ["https://inno-tim.herokuapp.com", "inno-tim.herokuapp.com"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
