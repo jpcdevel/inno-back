@@ -1,5 +1,6 @@
 import graphene
 
+from main.gql.enquiry.mutations import EnquiryMutations
 from main.gql.gallery.queries import GalleryQueries
 from main.gql.enquiry.queries import EnquiryQueries
 from main.gql.tracker.queries import TrackerQueries
@@ -14,7 +15,7 @@ class Query(AuthQueries, EnquiryQueries):
     pass
 
 
-class Mutation(AuthMutations, graphene.ObjectType):
+class Mutation(AuthMutations, EnquiryMutations):
     pass
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

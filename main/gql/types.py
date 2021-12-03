@@ -21,3 +21,4 @@ class EnquiryType(DjangoObjectType):
     class Meta:
         model = Enquiry
         fields = ("__all__")
+
