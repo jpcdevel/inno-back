@@ -12,4 +12,5 @@ class UserType(DjangoObjectType):
             "password",
             "first_name",
             "last_name",
+            "type"
         )

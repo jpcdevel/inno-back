@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-xph&n#9s(sj7m)_%$@nj@m+8^gc_st3rm*#^(#5q_)l#q#@^a*
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://inno-tim.herokuapp.com"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -111,14 +111,19 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 GRAPHENE = {
     "SCHEMA": "main.schema.schema",
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware'
+    ]
 }
 
 AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
     'django.contrib.auth.backends.ModelBackend'
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://inno-tim.netlify.app"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -126,3 +131,15 @@ CORS_ALLOW_CREDENTIALS = True
 AUTH_USER_MODEL = 'main.ExtendedUser'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPHQL_JWT = {
+    "JWT_VERIFY_EXPIRATION": True,
+    "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
+    "JWT_EXPIRATION_DELTA": timedelta(minutes=5),
+    "JWT_REFRESH_EXPIRATION_DELTA": timedelta(days=7),
+    # "JWT_VERIFY_EXPIRATION": True,
+    # 'JWT_ALLOW_REFRESH': True,
+    # 'JWT_LONG_RUNNING_REFRESH_TOKEN': True,
+    # 'JWT_EXPIRATION_DELTA': timedelta(minutes=15),
+    # 'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=14),
+}
