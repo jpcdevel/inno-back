@@ -7,3 +7,11 @@ class ExtendedUser(AbstractUser):
 
     USERNAME_FIELD = "username"
     EMAIL_FIELD = "email"
+
+
+class Enquiry(models.Model):
+    description = models.CharField(max_length=1000, db_column='description')
+    occurrence = models.CharField(max_length=1000, db_column='occurence')
+    try_resolve_example = models.CharField(max_length=1000, db_column='try_resolve_example')
+    expiration_date =  models.DateTimeField(db_column='expiration_date')
+    requisite_customer = models.CharField(max_length=1000, db_column='requisite_customer')

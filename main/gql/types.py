@@ -1,6 +1,7 @@
 from graphene_django import DjangoObjectType
 
-from main.models import ExtendedUser
+from main.models import ExtendedUser, Enquiry
+
 
 class UserType(DjangoObjectType):
     class Meta:
@@ -14,3 +15,9 @@ class UserType(DjangoObjectType):
             "last_name",
             "type"
         )
+
+
+class EnquiryType(DjangoObjectType):
+    class Meta:
+        model = Enquiry
+        fields = ("__all__")
